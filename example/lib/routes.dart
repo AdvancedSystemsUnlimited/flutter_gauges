@@ -1,3 +1,4 @@
+import 'package:example/pages/centered_text_page.dart';
 import 'package:example/pages/multiple_axes_page.dart';
 import 'package:example/pages/segments_page.dart';
 import 'package:example/pages/ticks_in_between_page.dart';
@@ -20,6 +21,8 @@ List<DemoPage> demoPages = [
       '/ticks_in_between', TicksInBetweenPage()),
   DemoPage('Multiple axes', 'Multiple axes in one gauge', '/multiple_axes',
       MultipleAxesPage()),
+  DemoPage('Centered Text', 'Centered text on multiple gauges',
+      '/centered_text', CenteredTextPage()),
 ];
 
 getRoutes(BuildContext context) {
