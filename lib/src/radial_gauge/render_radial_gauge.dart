@@ -1,13 +1,8 @@
 import 'dart:math';
-import 'dart:ui';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:gauges/gauges.dart';
-import 'package:gauges/src/radial_gauge/radial_ticks.dart';
-import 'radial_gauge_axis.dart';
-import 'radial_gauge_segment.dart';
+
+import '../../gauges.dart';
 
 class RenderRadialGauge extends RenderBox
     with RenderObjectWithChildMixin<RenderBox> {
@@ -71,13 +66,7 @@ class RenderRadialGauge extends RenderBox
 
   @override
   void performLayout() {
-    if (child == null) {
-      // RenderObjects must have a size after layout, and that size
-      // be within the constraints provided to it.
-      //
-      // Since there is no child, just use the smallest allowed.
-      // size = constraints.smallest;
-    } else {
+    if (child != null) {
       // If a RenderObject has a child, it must be layed out at
       // least once.
       //
@@ -95,14 +84,6 @@ class RenderRadialGauge extends RenderBox
 
       // Now that the child has been layed out, we can grab its size.
       final childSize = child!.size;
-
-      // Calculate the width of our square by taking the maximum of
-      // the child's width and height.
-      // final width = max(childSize.width, childSize.height);
-
-      // Size ourselves to the closest size that still fits within
-      // the constraints given by our parent.
-      // size = constraints.constrain(Size.square(width));
 
       // Each RenderObject has a `parentData` field that is managed
       // by its parent, this is initialized when the child is mounted

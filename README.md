@@ -181,6 +181,69 @@ RadialGaugeAxis(
 
 Not available yet
 
-## Maintainer
-[Julian Aßmann](https://github.com/JulianAssmann)
+### Centered Text
+
+Centered text is actually a centered child widget. This was quickly done, but it is functional. See the child property usage in the RadialGauge below. Also, there is an example in the example application.
+
+![](doc/centered_text.png)
+
+```dart
+int _value = 33;
+String _valueText = 'Social';
+RadialGauge(
+          child: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                33.toString(),
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.purple, fontSize: 40.0),
+              ),
+              if (_valueText != null)
+                Text(_valueText!,
+                    style: TextStyle(color: Colors.purple, fontSize: 20.0)),
+            ],
+          )),
+          axes: [
+            RadialGaugeAxis(
+              rotation: 180, // starts at the bottom
+              minValue: 0,
+              maxValue: ((_value + 1) / 100) * 360,
+              minAngle: 0,
+              maxAngle: ((_value + 1) / 100) * 360,
+              radius: 0.6,
+              color: Colors.transparent,
+              ticks: [
+                RadialTicks(
+                  interval: 5,
+                  alignment: RadialTickAxisAlignment.inside,
+                  color: Colors.purple,
+                  length: 0.1,
+                ),
+              ],
+            ),
+            RadialGaugeAxis(
+              rotation: 180,
+              minValue: (((_value + 1) / 100) * 360) + 2,
+              maxValue: 358,
+              minAngle: (((_value + 1) / 100) * 360) + 2,
+              maxAngle: 358,
+              radius: 0.6,
+              color: Colors.transparent,
+              ticks: [
+                RadialTicks(
+                  interval: 5,
+                  alignment: RadialTickAxisAlignment.inside,
+                  color: Colors.grey,
+                  length: 0.1,
+                ),
+              ],
+            )
+          ],
+        )
+```
+## Maintainers
+[Julian Aßmann](https://github.com/JulianAssmann) -
+[Tommy L. Cox](https://github.com/TommyLCox)
 
